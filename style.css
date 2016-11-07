@@ -1,0 +1,20 @@
+.title{
+  text-align: center;
+  font-size: 36px;
+  color: Salmon;
+}
+.salmon{
+  color: Salmon;
+}
+.triggered{
+  color: Red;
+  font-size: 20px;
+}
+body{
+  background-color: RebeccaPurple;
+}
+#picture{
+  display: block;
+  margin-left: auto;
+  margin-right: auto; 
+}
