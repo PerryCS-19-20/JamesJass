@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Breakout</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery.min.js"></script>
+        <script type="text/javascript" src="/chs.js"></script>
+        <script>
+                        /* Constants for bricks */
+            var NUM_ROWS = 8;
+            var BRICK_TOP_OFFSET = 10;
+            var BRICK_SPACING = 2;
+            var NUM_BRICKS_PER_ROW = 10;
+            var BRICK_HEIGHT = 10;
+            var SPACE_FOR_BRICKS = getWidth() - (NUM_BRICKS_PER_ROW + 1) * BRICK_SPACING;
+            var BRICK_WIDTH = SPACE_FOR_BRICKS / NUM_BRICKS_PER_ROW;
+
+            /* Constants for ball and paddle */
+            var PADDLE_WIDTH = 80;
+            var PADDLE_HEIGHT = 15;
+            var PADDLE_OFFSET = 10;
+
+            var BALL_RADIUS = 15;
+            var dx = 4;
+            var dy = 4;
+
+            var ball = new Circle(BALL_RADIUS);
+            var paddle = new Rectangle(PADDLE_WIDTH, PADDLE_HEIGHT);
+            paddle.setPosition(getWidth() / 2, getHeight() - 25);
+            add(paddle);
+
+            function start(){
+                brickRow();
+                add(ball);
+                ball.setPosition(getWidth()/2, getHeight()/2);
+                    setTimer(draw, 20);
+                    mouseMoveMethod(position);
+            }
+
+            function brickRow(){
+                for(var i = 0; i <= NUM_BRICKS_PER_ROW; i++){
+                    var brick = new Rectangle(BRICK_WIDTH, BRICK_HEIGHT);
+                    brick.setPosition(BRICK_WIDTH * i + BRICK_SPACING * i + 2, BRICK_TOP_OFFSET);
+                    brick.setColor(Color.red);
+                    add(brick);
+                }
+                for(var i = 0; i <= NUM_BRICKS_PER_ROW; i++){
+                    var brick = new Rectangle(BRICK_WIDTH, BRICK_HEIGHT);
+                    brick.setPosition(BRICK_WIDTH * i + BRICK_SPACING * i + 2, BRICK_HEIGHT + BRICK_TOP_OFFSET + BRICK_SPACING);
+                    brick.setColor(Color.red);
+                    add(brick);
+                }
+                for(var i = 0; i <= NUM_BRICKS_PER_ROW; i++){
+                    var brick = new Rectangle(BRICK_WIDTH, BRICK_HEIGHT);
+                    brick.setPosition(BRICK_WIDTH * i + BRICK_SPACING * i + 2, BRICK_HEIGHT + BRICK_TOP_OFFSET * 2 + BRICK_SPACING * 2);
+                    brick.setColor(Color.orange);
+                    add(brick);
+                }
+                for(var i = 0; i <= NUM_BRICKS_PER_ROW; i++){
+                    var brick = new Rectangle(BRICK_WIDTH, BRICK_HEIGHT);
+                    brick.setPosition(BRICK_WIDTH * i + BRICK_SPACING * i + 2, BRICK_HEIGHT + BRICK_TOP_OFFSET * 3 + BRICK_SPACING * 3);
+                    brick.setColor(Color.orange);
+                    add(brick);
+                }
+                for(var i = 0; i <= NUM_BRICKS_PER_ROW; i++){
+                    var brick = new Rectangle(BRICK_WIDTH, BRICK_HEIGHT);
+                    brick.setPosition(BRICK_WIDTH * i + BRICK_SPACING * i + 2, BRICK_HEIGHT + BRICK_TOP_OFFSET * 4 + BRICK_SPACING * 4);
+                    brick.setColor(Color.green);
+                    add(brick);
+                }
+                for(var i = 0; i <= NUM_BRICKS_PER_ROW; i++){
+                    var brick = new Rectangle(BRICK_WIDTH, BRICK_HEIGHT);
+                    brick.setPosition(BRICK_WIDTH * i + BRICK_SPACING * i + 2, BRICK_HEIGHT + BRICK_TOP_OFFSET * 5 + BRICK_SPACING * 5);
+                    brick.setColor(Color.green);
+                    add(brick);
+                }
+                for(var i = 0; i <= NUM_BRICKS_PER_ROW; i++){
+                    var brick = new Rectangle(BRICK_WIDTH, BRICK_HEIGHT);
+                    brick.setPosition(BRICK_WIDTH * i + BRICK_SPACING * i + 2, BRICK_HEIGHT + BRICK_TOP_OFFSET * 6 + BRICK_SPACING * 6);
+                    brick.setColor(Color.blue);
+                    add(brick);
+                }
+                for(var i = 0; i <= NUM_BRICKS_PER_ROW; i++){
+                    var brick = new Rectangle(BRICK_WIDTH, BRICK_HEIGHT);
+                    brick.setPosition(BRICK_WIDTH * i + BRICK_SPACING * i + 2, BRICK_HEIGHT + BRICK_TOP_OFFSET * 7 + BRICK_SPACING * 7);
+                    brick.setColor(Color.blue);
+                    add(brick);
+                }
+            }
+
+            function draw(){
+                    checkWalls();
+                    ball.move(dx, dy);
+                    removeBricks();
+            }
+
+            function checkWalls(){
+                    // Bounce off right wall
+                    if(ball.getX() + ball.getRadius() > getWidth()){
+                            dx = -dx;
+                    }
+
+                    // Bounce off left wall
+                    if(ball.getX() - ball.getRadius() < 0){
+                            dx = -dx;
+                    }
+
+                    // Bounce off bottom wall
+                    /*if(ball.getY() + ball.getRadius() > getHeight()){
+                            dy = -dy;
+                    }*/
+
+                    // Bounce off top wall
+                    if(ball.getY() - ball.getRadius() < 0){
+                            dy = -dy;
+                    }
+                    if(ball.getX() > paddle.getX() && ball.getX() < paddle.getX() + PADDLE_WIDTH && ball.getY() - ball.getRadius() > paddle.getY() - 25){
+                        dy = -dy;
+                    }
+            }
+
+            function position(e){
+                if(e.getX() + PADDLE_WIDTH < getWidth()){
+                paddle.setPosition(e.getX(), getHeight() - 25);
+                }else if(e.getX() + PADDLE_WIDTH > getWidth()){
+                    paddle.setPosition(318, getHeight() - 25);
+                }
+            }
+
+            function removeBricks(){
+                var ballAt = getElementAt(ball.getX(), ball.getY() - BALL_RADIUS);
+                if(ballAt !== null){
+                    remove(ballAt);
+                    dy = -dy;
+                }
+            }
+
+        </script>
+        <style>
+            canvas{
+                border:1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="canvasContainer" width="100%" style="width: 100%; height: 100%; overflow:hidden;">
+            <canvas width="400" height="500" class="codehs-editor=canvas"></canvas>
+        </div>
+        <script>
+            window.onload = function(){
+                if(typeof start === "function"){
+                    start();
+                }
+            }
+        </script>
+    </body>
+</html>
