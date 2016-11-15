@@ -1,0 +1,26 @@
+ <!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test HTML</title>
+        <link rel = "stylesheet" type = "text/css" href = "style.css">
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <textarea rows="10" cols="80" id="inputText">Input html to test here</textarea>
+        <button onclick="testHTML();">Test!</button>
+        <span id = "s1"></span>
+        <script>
+            function testHTML(){
+                var userInput = document.getElementById("inputText");
+                var span = document.getElementById("s1");
+                span.innerHTML = userInput.value;
+            }
+        </script>
+    </body>
+</html>
