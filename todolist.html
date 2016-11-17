@@ -1,0 +1,25 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>To do list.</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <textarea rows="10" cols="80" id="inputText">Enter list here.</textarea>
+        <button onclick = "toDoList();">Create List.</button>
+        <ul id = "list"></ul>
+        <script>
+            function toDoList(){
+                 var task = document.getElementById("inputText");
+                 var listItem = document.createElement("li");
+                 var list = document.getElementById("list");
+                 listItem.textContent = task.value;
+                 list.appendChild(listItem);
+            }
+        </script>
+    </body>
+</html>
