@@ -33,10 +33,33 @@
                 <td id="9" onclick="play('9');"></td>
             </tr>
         </table>
+        <button onclick="reset()">Reset game.</button>
         <script>
+            function reset(){
+                var one = document.getElementById("1");
+                var two = document.getElementById("2");
+                var three = document.getElementById("3");
+                var four = document.getElementById("4");
+                var five = document.getElementById("5");
+                var six = document.getElementById("6");
+                var seven = document.getElementById("7");
+                var eight = document.getElementById("8");
+                var nine = document.getElementById("9");
+                
+                one.textContent = "";
+                two.textContent = "";
+                three.textContent = "";
+                four.textContent = "";
+                five.textContent = "";
+                six.textContent = "";
+                seven.textContent = "";
+                eight.textContent = "";
+                nine.textContent = "";
+            }
             var player = "X";
             function play(cell){
                 var clicked = document.getElementById(cell);
+                var win = false;
                 if(clicked.textContent === ""){
                     clicked.textContent = player;
                     if(player === "X"){
@@ -45,7 +68,49 @@
                             player = "X";     
                     }
                 }
-                
+                checkWin(win);
+                if(checkWin(win) === true){
+                    win = true;
+                }
+                if(win === true){
+                    alert("You win!");
+                }
+            }
+            function checkWin(youWon){
+                var one = document.getElementById("1").textContent;
+                var two = document.getElementById("2").textContent;
+                var three = document.getElementById("3").textContent;
+                var four = document.getElementById("4").textContent;
+                var five = document.getElementById("5").textContent;
+                var six = document.getElementById("6").textContent;
+                var seven = document.getElementById("7").textContent;
+                var eight = document.getElementById("8").textContent;
+                var nine = document.getElementById("9").textContent;
+                var youWon = false;
+                if(one === player && two === player && three === player){
+                    youWon = true;
+                }
+                if(one === player && four === player && seven === player){
+                    youWon = true;
+                }
+                if(one === player && five === player && nine === player){
+                    youWon = true;
+                }
+                if(two === player && five === player && eight === player){
+                    youWon = true;
+                }
+                if(three === player && six === player && nine === player){
+                    youWon = true;
+                }
+                if(three === player && five === player && seven === player){
+                    youWon = true;
+                }
+                if(four === player && five === player && six === player){
+                    youWon = true;
+                }
+                if(seven === player && eight === player && nine === player){
+                    youWon = true;
+                }
             }
         </script>
     </body>
