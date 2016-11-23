@@ -33,7 +33,7 @@
                 <td id="9" onclick="play('9');"></td>
             </tr>
         </table>
-        <button onclick="reset()">Reset game.</button>
+        <button onclick="reset();">Reset game.</button>
         <script>
             function reset(){
                 var one = document.getElementById("1");
@@ -59,24 +59,20 @@
             var player = "X";
             function play(cell){
                 var clicked = document.getElementById(cell);
-                var win = false;
                 if(clicked.textContent === ""){
                     clicked.textContent = player;
+                    var youWon = checkWin();
+                    if(youWon === true){
+                        alert(player + (" wins!"));
+                    }
                     if(player === "X"){
                             player = "O";
                         }else{
                             player = "X";     
                     }
                 }
-                checkWin(win);
-                if(checkWin(win) === true){
-                    win = true;
-                }
-                if(win === true){
-                    alert("You win!");
-                }
             }
-            function checkWin(youWon){
+            function checkWin(){
                 var one = document.getElementById("1").textContent;
                 var two = document.getElementById("2").textContent;
                 var three = document.getElementById("3").textContent;
@@ -87,30 +83,31 @@
                 var eight = document.getElementById("8").textContent;
                 var nine = document.getElementById("9").textContent;
                 var youWon = false;
-                if(one === player && two === player && three === player){
+                if((one === player) && (two === player) && (three === player)){
                     youWon = true;
                 }
-                if(one === player && four === player && seven === player){
+                if((one === player) && (four === player) && (seven === player)){
                     youWon = true;
                 }
-                if(one === player && five === player && nine === player){
+                if((one === player) && (five === player) && (nine === player)){
                     youWon = true;
                 }
-                if(two === player && five === player && eight === player){
+                if((two === player) && (five === player) && (eight === player)){
                     youWon = true;
                 }
-                if(three === player && six === player && nine === player){
+                if((three === player) && (six === player) && (nine === player)){
                     youWon = true;
                 }
-                if(three === player && five === player && seven === player){
+                if((three === player) && (five === player) && (seven === player)){
                     youWon = true;
                 }
-                if(four === player && five === player && six === player){
+                if((four === player) && (five === player) && (six === player)){
                     youWon = true;
                 }
-                if(seven === player && eight === player && nine === player){
+                if((seven === player) && (eight === player) && (nine === player)){
                     youWon = true;
                 }
+                return youWon;
             }
         </script>
     </body>
