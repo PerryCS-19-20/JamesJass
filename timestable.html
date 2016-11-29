@@ -22,21 +22,33 @@
                 // Create a table for the multiplication table
                 var timesTable = document.createElement("table");
                 timesTable.id = "timesTable";
-                var rowOne = document.createElement("th");
-                rowOne = i;
-                var colOne = document.createElement("th");
-                for(var i = 0; i < 10; i++){
 
-                    for(var j = 0; j < 10; j++){
-                        
-                    }
-                }
-                
                 // Add the table to the document's body
                 var body = document.body;
                 body.appendChild(timesTable);
                 
                 // Fill in the multiplication table
+                 for(var i = 0; i < 11; i++){
+                    var tRow = document.createElement("tr");
+                    timesTable.appendChild(tRow);
+                    for(var j = 0; j < 11; j++){
+                        var tHead = document.createElement("th");
+                        var tBody = document.createElement("td");
+                        if(i === 0){
+                            tHead.textContent = j;
+                            tRow.appendChild(tHead);
+                        }else if(j === 0){
+                            tHead.textContent = i;
+                            tRow.appendChild(tHead);
+                        }else{
+                            tBody.textContent = i * j;
+                            tRow.appendChild(tBody);
+                        }
+                        if(i ===0 && j === 0){
+                            tHead.textContent = " ";
+                        }
+                    }
+                }
             }
         </script>
     </body>
