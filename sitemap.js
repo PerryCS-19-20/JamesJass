@@ -1,4 +1,5 @@
-function buildMap(){
+function buildMap(elementId){
+    var theMap = document.getElementById(elementId)
     var list = document.createElement("ul");
     var listItems = document.createElement("li");
     var home = document.createElement("a");
@@ -23,4 +24,15 @@ function buildMap(){
     ticTacToe.href = "Tic-Tac-Toe.html";
     multiplication.href = "timestable.html";
     moreMultiplication.href = "adjustabletimestable.html";
+    
+    list.appendChild(buildList("Home", "index.html"));
+}
+
+function buildList(title, link){
+    var element = document.createElement("a");
+    var li = document.createElement("li");
+    element.href = link;
+    element.textContent = title;
+    li.appendChil(Element);
+    return(li);
 }
