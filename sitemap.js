@@ -1,31 +1,44 @@
 function buildMap(elementId){
-    var theMap = document.getElementById(elementId)
+    var theMap = document.getElementById(elementId);
     var list = document.createElement("ul");
     var listItems = document.createElement("li");
-    var home = document.createElement("a");
-    var biography = document.createElement("a");
-    var breakout = document.createElement("a");
-    var javascriptEvents = document.createElement("a");
-    var popUp = document.createElement("a");
-    var toDoList = document.createElement("a");
-    var chalkboard = document.createElement("a");
-    var ticTacToe = document.createElement("a");
-    var multiplication = document.createElement("a");
-    var moreMultiplication = document.createElement("a");
-    var classProjects = document.createElement("a");
-    
-    home.href = "index.html";
-    biography.href = "bio.html";
-    breakout.href = "breakout.html";
-    javascriptEvents.href = ".html";
-    popUp.href = "popup.html";
-    toDoList.href = "todolist.html";
-    chalkboard.href = "chalkboard.html";
-    ticTacToe.href = "Tic-Tac-Toe.html";
-    multiplication.href = "timestable.html";
-    moreMultiplication.href = "adjustabletimestable.html";
+    var classProjects = document.createElement("li");
+    classProjects.textContent = "Class Projects";
+    var sublist = document.createElement("ul")
     
     list.appendChild(buildList("Home", "index.html"));
+    theMap.appendChild(list);
+    
+    list.appendChild(buildList("Biography", "bio.html"));
+    theMap.appendChild(list);
+    
+    list.appendChild(classProjects);
+    theMap.appendChild(list);
+    
+    sublist.appendChild(buildList("Breakout", "breakout.html"));
+    classProjects.appendChild(sublist);
+    
+    sublist.appendChild(buildList("Javascript Events", ("span.html")));
+    classProjects.appendChild(sublist);
+    
+    sublist.appendChild(buildList("Pop-Up!", "popup.html"));
+    classProjects.appendChild(sublist);
+    
+    sublist.appendChild(buildList("To Do List","todolist.html"));
+    classProjects.appendChild(sublist);
+    
+    sublist.appendChild(buildList("Chalkboard", "chalkboard.html"));
+    classProjects.appendChild(sublist);
+    
+    sublist.appendChild(buildList("Tic-Tac-Toe", "Tic-Tac-Toe.html"));
+    classProjects.appendChild(sublist);
+    
+    sublist.appendChild(buildList("Times Table", "timestable.html"));
+    classProjects.appendChild(sublist);
+    
+    sublist.appendChild(buildList("Adjustable Times Table", "adjustabletimestable.html"));
+    classProjects.appendChild(sublist);
+    
 }
 
 function buildList(title, link){
@@ -33,6 +46,6 @@ function buildList(title, link){
     var li = document.createElement("li");
     element.href = link;
     element.textContent = title;
-    li.appendChil(Element);
+    li.appendChild(element);
     return(li);
 }
