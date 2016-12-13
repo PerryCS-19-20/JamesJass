@@ -6,8 +6,11 @@
         <link rel = "stylesheet" type = "text/css" href = "style.css">
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
         <link rel="icon" href="favicon.ico" type="image/x-icon">
+     <script src="sitemap.js"></script>
+        <link rel="stylesheet" type="text/css" href="menubar.css">
     </head>
-    <body>
+    <body onload="buildMap('menubar');">
+        <div id="menubar"></div>
         <textarea rows="10" cols="80" id="inputText">Enter text here.</textarea>
         <button onclick = "createList();">Create List.</button>
         <ol id = "list"></ol>

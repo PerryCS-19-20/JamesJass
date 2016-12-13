@@ -148,8 +148,11 @@
     				border: 1px solid black;
 			}
 		</style>
-	</head>
-	<body>
+	 <script src="sitemap.js"></script>
+        <link rel="stylesheet" type="text/css" href="menubar.css">
+    </head>
+    <body onload="buildMap('menubar');">
+        <div id="menubar"></div>
 		<div id="canvasContainer" width="100%" style="width: 100%; height: 100%; overflow: hidden;">
 			<canvas width="400" height="500" class="codehs-editor-canvas"></canvas>
 		</div>

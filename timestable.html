@@ -15,8 +15,11 @@
                 text-align: right;
             }
         </style>
+     <script src="sitemap.js"></script>
+        <link rel="stylesheet" type="text/css" href="menubar.css">
     </head>
-    <body onload="buildTimesTable();">
+    <body onload="buildTimesTable(); buildMap('menubar');">
+        <div id="menubar"></div>
         <script>
             function buildTimesTable() {
                 // Create a table for the multiplication table

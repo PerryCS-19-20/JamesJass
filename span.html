@@ -19,8 +19,11 @@
                 document.body.style.backgroundColor = makeRandomColor();
             }
         </script>
+    <script src="sitemap.js"></script>
+        <link rel="stylesheet" type="text/css" href="menubar.css">
     </head>
-    <body>
+    <body onload="buildMap('menubar');">
+        <div id="menubar"></div>
         <h1><span style ="color: Salmon">Random Color Fun Times</span></h1>
         <span style ="color: Salmon" onclick="changeColor();"> Click here.</span>
     </body>
