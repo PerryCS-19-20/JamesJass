@@ -4,7 +4,7 @@ function buildMap(elementId){
     var listItems = document.createElement("li");
     var classProjects = document.createElement("li");
     classProjects.textContent = "Class Projects";
-    var sublist = document.createElement("ul")
+    var sublist = document.createElement("ul");
     
     list.appendChild(buildList("Home", "index.html"));
     theMap.appendChild(list);
@@ -38,6 +38,12 @@ function buildMap(elementId){
     
     sublist.appendChild(buildList("Adjustable Times Table", "adjustabletimestable.html"));
     classProjects.appendChild(sublist);
+    
+    sublist.appendChild(buildList("Pythagorean Theorem Calculator", "Calculator.html"));
+    classProjects.appendChild(sublist);
+    
+    list.appendChild(buildList("", "Staggering_Beauty.html"));
+    theMap.appendChild(list);
     
 }
 
