@@ -6,10 +6,10 @@
         <title>Pythagorean Theorem Calc</title>
         <script>
             function calc() {
-                var a = parseFloat(document.getElementById("A").value);
-                var b = parseFloat(document.getElementById("B").value);
-                var c = document.getElementById("C");
-                c.value = Math.sqrt(c).toFixed(2);
+                var a = parseFloat(document.getElementById("a").value);
+                var b = parseFloat(document.getElementById("b").value);
+                var c = document.getElementById("c");
+                c.value = Math.sqrt(Math.pow(a,2) + Math.pow(b,2)).toFixed(2);
             }
         </script>
         <style>
@@ -20,7 +20,7 @@
     </head>
     <body>
         <h1>Pythagorean Theorem:</h1>
-        <img src="http://images.tutorvista.com/cms/images/67/right-cylinder.png" style="float: left; height: 150px; margin-right: 5px;">
+        <img src="pythagoras-theorem.gif" style="float: left; height: 150px; margin-right: 5px;">
         <h2>A<sup>2</sup> + B<sup>2</sup> = C<sup>2</sup></h2>
         
         a: <input type="number" id="a" placeholder="A"><br>
