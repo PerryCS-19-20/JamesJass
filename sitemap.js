@@ -44,7 +44,6 @@ function buildMap(elementId){
     
     list.appendChild(buildList("", "Staggering_Beauty.html"));
     theMap.appendChild(list);
-    
 }
 
 function buildList(title, link){
