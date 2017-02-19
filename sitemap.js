@@ -44,6 +44,9 @@ function buildMap(elementId){
     
     list.appendChild(buildList("", "Staggering_Beauty.html"));
     theMap.appendChild(list);
+    
+    sublist.appendChild(buildList("Molar Mass", "MolarCalc.html"));
+    classProjects.appendChild(sublist);
 }
 
 function buildList(title, link){
